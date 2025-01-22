@@ -29,23 +29,10 @@ And the resulting exe will use that copy.  You can then zip up the folder and di
 
 Linux Build (vcpkg submodule)
 --------------------
-* Install dependencies
-  - `sudo apt-get install clang`
-  - `sudo apt-get install cmake`
-  - `sudo apt-get install freeglut3-dev`
-  - `sudo apt-get install libopenxr-dev`
-* Ensure splatapult has the vcpkg submodule.
-  Either clone with the --recursive flag so that the vcpkg submodule is added
-  or execute `git submodule init` and `git submodule update` after a regular clone.
-* Bootstrap vcpkg
-  - `cd vcpkg`
-  - `bootstrap-vcpg.sh`
-* Execute cmake to create a Makefile
-  - `mkdir build`
-  - `cd build`
-  - `cmake .. -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=vcpkg/scripts/buildsystems/vcpkg.cmake`
-* build executable
-  - `cmake --build . --config=Release`
+* The project and its dependencies can be installed using the following command:
+```bash
+./build.sh linux
+```
 
 *EXPERIMENTAL* Meta Quest Build (OUT OF DATE)
 --------------------
