@@ -13,16 +13,10 @@ jobs:
         uses: ConorMacBride/install-package@v1
         with:
           apt: libxmu-dev libxi-dev libgl-dev libxcb-glx0-dev libglu1-mesa-dev libxxf86vm-dev libxrandr-dev
-      - name: Install CMake
-        uses: lukka/get-cmake@v3.29.0
-      - name: Create Build Dir
-        run: mkdir build
-      - name: CMake Configure
-        working-directory: build
-        run: cmake -DSHIPPING=ON -DCMAKE_TOOLCHAIN_FILE="../vcpkg/scripts/buildsystems/vcpkg.cmake" ..
-      - name: CMake Build
-        working-directory: build
-        run: cmake --build . --config=Release
+      - name: Project Build
+        run: |
+            chmod +x build.sh
+            ./build.sh linux
   build-windows:
     runs-on: windows-latest
     steps:
